@@ -1,23 +1,21 @@
 def is_prime(x):
     try:
         x = int(x)
-        if x % 2 == 0 and x!=2 or x % 3 == 0 and x!=3 or x % 5 == 0 and x!= 5 or x % 7 == 0 and x!=7:
-            return False
-        else:
-            return True
+        for i in range(2, 8):
+            if x % i == 0 and x != i:
+                return False
+        return True
     except ValueError:
         return False
 
 
 def more_prime(x, y):
-    for i in range(x, y):
+    for i in range(x, y+1):
         if is_prime(i):
             yield i
-            i += 1
         else:
             i += 1
-            continue
-
+            
 
 while True:
     a = input("""\nWhat do you want to do :
